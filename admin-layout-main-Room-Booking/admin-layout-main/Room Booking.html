@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Room Booking</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body style="--bs-body-bg: #1a1d47;">
+
+  <div class="app-container">
+
+    <div class="d-flex flex-column sidebar" id="sidebar" class="sidebar" style="color: rgb(33, 37, 41);">
+        <div class="d-flex justify-content-between align-items-center px-3 py-2 sidebar-header">
+            <span class="text-truncate fs-5 fw-bold title">HMS</span><button class="btn btn-sm" type="button" onclick="toggleSidebar()" aria-label="Toggle Sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-list" style="font-size: 25px;">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"></path>
+                </svg></button></div>
+        <hr>
+        <div class="px-3 user-dropdown">
+            <div class="d-flex align-items-center user-toggle">
+                <img class="rounded-circle me-2 user-img" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" width="40" height="40" alt="User">
+                <strong>
+                    <span class="username">User</span>
+                </strong>
+            </div>
+        </div>
+        <hr>
+        <ul class="flex-column mb-auto px-2 nav nav-pills">
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-speedometer2 me-2" style="font-size: 20px;">
+                        <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
+                        <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"></path>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-door-closed me-2" style="font-size: 20px;">
+                        <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3zm1 13h8V2H4z"></path>
+                        <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0"></path>
+                    </svg>
+                    <span>Room Management</span>
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person me-2" style="font-size: 20px;">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"></path>
+                    </svg>
+                    <span>Customer Management</span>
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link active" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-calendar me-2" style="font-size: 20px;">
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"></path>
+                    </svg>
+                    <span>Room Booking</span>
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-gear me-2" style="font-size: 20px;">
+                        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"></path>
+                        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"></path>
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+        <div>
+            <hr>
+            <div class="flex-column mb-3 px-2 nav nav-pills"><a class="nav-link" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-box-arrow-right me-2" style="font-size: 20px;">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"></path>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"></path>
+                    </svg>
+                    <span>Log Out</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+   <div class="body-container">
+      <div class="page-header d-flex justify-content-between align-items-center">
+          <h1>Room Bookings</h1>
+          <button class="btn-new">+ New Booking</button>
+      </div>
+
+      <main class="content">
+        <div class="stats-container">
+  <div class="stat-card">
+    <h4>Total Bookings</h4>
+    <p class="total">5</p>
+  </div>
+  <div class="stat-card">
+    <h4>Confirmed</h4>
+    <p class="confirmed">2</p>
+  </div>
+  <div class="stat-card">
+    <h4>Pending</h4>
+    <p class="pending">1</p>
+  </div>
+  <div class="stat-card">
+    <h4>Checked In</h4>
+    <p class="checkedin">1</p>
+  </div>
+</div>
+
+        <div class="search-filter-container">
+  <div class="search-box">
+    <i class="fa fa-search"></i>
+    <input type="text" placeholder="Search bookings...">
+  </div>
+
+  <div class="filter-box">
+    <i class="fa fa-filter"></i>
+    <select>
+      <option>All Status</option>
+      <option>Confirmed</option>
+      <option>Pending</option>
+      <option>Checked In</option>
+      <option>Cancelled</option>
+    </select>
+  </div>
+</div>
+
+        <section class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Customer</th>
+                <th>Room</th>
+                <th>Check-in</th>
+                <th>Check-out</th>
+                <th>Guests</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Payment</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="booking-table">
+              <tr>
+                <td>BK001</td>
+                <td>John Doe</td>
+                <td>Suite 1</td>
+                <td>9/10/2024</td>
+                <td>9/12/2024</td>
+                <td>2</td>
+                <td>₱3,000</td>
+                <td><span class="status confirmed">Confirmed</span></td>
+                <td><span class="payment paid">Paid</span></td>
+
+                <td class="actions">
+                    <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                    <button class="btn-action edit"><i class="fas fa-pen"></i></button>
+                    <button class="btn-action delete"><i class="fas fa-trash"></i></button>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>BK002</td>
+                <td>John Smith</td>
+                <td>Suite 2</td>
+                <td>9/10/2024</td>
+                <td>9/12/2024</td>
+                <td>2</td>
+                <td>₱3,000</td>
+                <td><span class="status pending">Pending</span></td>
+                <td><span class="payment unpaid">Unpaid</span></td>
+               
+                <td class="actions">
+                    <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                    <button class="btn-action edit"><i class="fas fa-pen"></i></button>
+                    <button class="btn-action delete"><i class="fas fa-trash"></i></button>
+                </td>
+
+              </tr>
+              <tr>
+                <td>BK003</td>
+                <td>Mike Johnson</td>
+                <td>Suite 3</td>
+                <td>9/10/2024</td>
+                <td>9/12/2024</td>
+                <td>2</td>
+                <td>₱3,000</td>
+                <td><span class="status checked-in">Checked-In</span></td>
+                <td><span class="payment paid">Paid</span></td>
+               
+                <td class="actions">
+                    <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                    <button class="btn-action edit"><i class="fas fa-pen"></i></button>
+                    <button class="btn-action delete"><i class="fas fa-trash"></i></button>
+                </td>
+
+              </tr>
+              <tr>
+                <td>BK004</td>
+                <td>Sarah Wilson</td>
+                <td>Suite 4</td>
+                <td>9/10/2024</td>
+                <td>9/12/2024</td>
+                <td>2</td>
+                <td>₱3,000</td>
+                <td><span class="status cancelled">Cancelled</span></td>
+                <td><span class="payment refunded">Refunded</span></td>
+                
+                <td class="actions">
+                    <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                    <button class="btn-action edit"><i class="fas fa-pen"></i></button>
+                    <button class="btn-action delete"><i class="fas fa-trash"></i></button>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>BK005</td>
+                <td>David Brown</td>
+                <td>Suite 5</td>
+                <td>9/10/2024</td>
+                <td>9/12/2024</td>
+                <td>2</td>
+                <td>₱3,000</td>
+                <td><span class="status confirmed">Confirmed</span></td>
+                <td><span class="payment paid">Paid</span></td>
+                
+                <td class="actions">
+                    <button class="btn-action view"><i class="fas fa-eye"></i></button>
+                    <button class="btn-action edit"><i class="fas fa-pen"></i></button>
+                    <button class="btn-action delete"><i class="fas fa-trash"></i></button>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+  </div>
+
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
